@@ -1,6 +1,6 @@
 # Zenomeplatform web-site
 Zenome platform pages:
-* Zenome Varianter
+* Zenome Varianter _Genomic variants annotation and filtration tool_
 * Zenome Flow
 * Zenome Storage
 * Zenome WhitePaper
