@@ -5421,11 +5421,11 @@ class HistEvent {
     // events before the first change, in which case a special type of
     // instance is created which doesn't hold any changes, with
     // changes == startSelection == undefined
-    changes, 
+    changes,
     // The effects associated with this event
-    effects, mapped, 
+    effects, mapped,
     // The selection before this event
-    startSelection, 
+    startSelection,
     // Stores selection changes after this event, to be used for
     // selection undo/redo.
     selectionsAfter) {
@@ -6813,9 +6813,9 @@ class Range {
     /// @internal
     constructor(
     /// The range's start position.
-    from, 
+    from,
     /// Its end position.
-    to, 
+    to,
     /// The value associated with this range.
     value) {
         this.from = from;
@@ -6827,15 +6827,15 @@ function cmpRange(a, b) {
     return a.from - b.from || a.value.startSide - b.value.startSide;
 }
 // The maximum amount of ranges to store in a single chunk
-const ChunkSize = 250, 
+const ChunkSize = 250,
 // Chunks with points of this size are never skipped during
 // compare, since moving past those points is likely to speed
 // up, rather than slow down, the comparison.
-BigPointSize = 500, 
+BigPointSize = 500,
 // A large (fixnum) value to use for max/min values.
 Far = 1e9;
 class Chunk {
-    constructor(from, to, value, 
+    constructor(from, to, value,
     // Chunks are marked with the largest point that occurs
     // in them (or -1 for no points), so that scans that are
     // only interested in points (such as the
@@ -6908,11 +6908,11 @@ class RangeSet {
     /// @internal
     constructor(
     /// @internal
-    chunkPos, 
+    chunkPos,
     /// @internal
-    chunk, 
+    chunk,
     /// @internal
-    nextLayer = RangeSet.empty, 
+    nextLayer = RangeSet.empty,
     /// @internal
     maxPoint) {
         this.chunkPos = chunkPos;
@@ -8251,7 +8251,7 @@ class ChangeDesc {
 /// with exactly that length.
 class ChangeSet extends ChangeDesc {
     /// @internal
-    constructor(sections, 
+    constructor(sections,
     /// @internal
     inserted) {
         super(sections);
@@ -8611,7 +8611,7 @@ class SelectionRange {
     // @internal
     constructor(
     /// The lower side of the range.
-    from, 
+    from,
     /// The upper side of the range.
     to, flags) {
         this.from = from;
@@ -8672,7 +8672,7 @@ class EditorSelection {
     constructor(
     /// The ranges in the selection, sorted by position. Ranges cannot
     /// overlap (but they may touch, if they aren't empty).
-    ranges, 
+    ranges,
     /// The index of the _primary_ range in the selection (which is
     /// usually the range that was added last).
     primaryIndex = 0) {
@@ -8790,9 +8790,9 @@ let nextID = 0;
 class Facet {
     constructor(
     /// @internal
-    combine, 
+    combine,
     /// @internal
-    compareInput, 
+    compareInput,
     /// @internal
     compare, isStatic) {
         this.combine = combine;
@@ -8934,7 +8934,7 @@ function maybeIndex(state, id) {
 class StateField {
     constructor(
     /// @internal
-    id, createF, updateF, compareF, 
+    id, createF, updateF, compareF,
     /// @internal
     facets) {
         this.id = id;
@@ -9189,9 +9189,9 @@ class IndentContext {
     /// [`insertNewlineAndIndent`](#commands.insertNewlineAndIndent).
     constructor(
     /// The editor state.
-    state, 
+    state,
     /// @internal
-    overrideIndentation, 
+    overrideIndentation,
     /// @internal
     simulateBreak) {
         this.state = state;
@@ -9260,7 +9260,7 @@ class StateEffect {
     /// @internal
     constructor(
     /// @internal
-    type, 
+    type,
     /// The value of this effect.
     value) {
         this.type = type;
@@ -9319,12 +9319,12 @@ class Transaction {
     /// @internal
     constructor(
     /// The state from which the transaction starts.
-    startState, 
+    startState,
     /// The document changes made by this transaction.
-    changes, 
+    changes,
     /// The selection set by this transaction, or undefined if it
     /// doesn't explicitly set a selection.
-    selection, 
+    selection,
     /// The effects added to the transaction.
     effects, annotations, flags) {
         this.startState = startState;
@@ -9507,9 +9507,9 @@ class EditorState {
     /// @internal
     constructor(
     /// @internal
-    config, 
+    config,
     /// The current document.
-    doc, 
+    doc,
     /// The current selection.
     selection, tr = null) {
         this.config = config;
@@ -10495,12 +10495,12 @@ class Line {
     /// @internal
     constructor(
     /// The position of the start of the line.
-    start, 
+    start,
     /// The position at the end of the line (_before_ the line break,
     /// if this isn't the last line).
-    end, 
+    end,
     /// This line's line number (1-based).
-    number, 
+    number,
     /// @internal
     content) {
         this.start = start;
@@ -11552,11 +11552,11 @@ class Decoration extends _codemirror_next_rangeset__WEBPACK_IMPORTED_MODULE_2__[
     /// @internal
     constructor(
     /// @internal
-    startSide, 
+    startSide,
     /// @internal
-    endSide, 
+    endSide,
     /// @internal
-    widget, 
+    widget,
     /// The config object used to create this decoration.
     spec) {
         super();
@@ -11986,7 +11986,7 @@ class LineView extends ContentView {
 }
 const none$2 = [];
 class BlockWidgetView extends ContentView {
-    constructor(widget, length, type, 
+    constructor(widget, length, type,
     // This is set by the builder and used to distinguish between
     // adjacent widgets and parts of the same widget when calling
     // `merge`. It's kind of silly that it's an instance variable, but
@@ -12467,13 +12467,13 @@ class BlockInfo {
     /// @internal
     constructor(
     /// The start of the element in the document.
-    from, 
+    from,
     /// The length of the element.
-    length, 
+    length,
     /// The top position of the element.
-    top, 
+    top,
     /// Its height.
-    height, 
+    height,
     /// The type of element this is. When querying lines, this may be
     /// an array of all the blocks that make up the line.
     type) {
@@ -13050,9 +13050,9 @@ const viewPlugin = _codemirror_next_state__WEBPACK_IMPORTED_MODULE_0__["Facet"].
 class ViewPlugin {
     constructor(
     /// @internal
-    id, 
+    id,
     /// @internal
-    create, 
+    create,
     /// @internal
     fields) {
         this.id = id;
@@ -13197,9 +13197,9 @@ class ViewUpdate {
     /// @internal
     constructor(
     /// The editor view that the update is associated with.
-    view, 
+    view,
     /// The new editor state.
-    state, 
+    state,
     /// The transactions involved in the update. May be empty.
     transactions = none$3) {
         this.view = view;
@@ -16363,7 +16363,7 @@ module.exports = class Mutex {
         return new Promise(resolve => {
           this._release = resolve
         })
-      }); 
+      });
     })
   }
   // Returns true if successful, gives up after 10 minutes
@@ -16380,7 +16380,7 @@ module.exports = class Mutex {
         return new Promise(resolve => {
           this._release = resolve
         })
-      }); 
+      });
     })
   }
   // Returns true if successful
@@ -17523,7 +17523,7 @@ module.exports = AsyncLock;
 
 	function b64ToByteArray(b64) {
 		var i, j, l, tmp, placeHolders, arr;
-	
+
 		if (b64.length % 4 > 0) {
 			throw 'Invalid string. Length must be a multiple of 4';
 		}
@@ -19976,11 +19976,11 @@ function from_hex(str) {
 
     if(i > 0 && (i % 2) === 1) {
       buf[i>>>1] = parseInt(character, 16)
-      character = '' 
+      character = ''
     }
   }
 
-  return buf 
+  return buf
 }
 
 function from_utf(str) {
@@ -19996,7 +19996,7 @@ function from_utf(str) {
         bytes[bytes.length] = parseInt(tmp[j], 16)
       }
     } else {
-      bytes[bytes.length] = ch 
+      bytes[bytes.length] = ch
     }
   }
 
@@ -20004,7 +20004,7 @@ function from_utf(str) {
 }
 
 function from_base64(str) {
-  return new Uint8Array(base64.toByteArray(str)) 
+  return new Uint8Array(base64.toByteArray(str))
 }
 
 
@@ -20055,7 +20055,7 @@ function join(targets, hint) {
       curlen = cur && cur.length
       continue
     }
-    out[i++] = cur[curoff++] 
+    out[i++] = cur[curoff++]
   }
 
   return out
@@ -44222,7 +44222,7 @@ class NodePropSource {
     /// @internal
     constructor(
     /// @internal
-    prop, 
+    prop,
     /// @internal
     f) {
         this.prop = prop;
@@ -44237,9 +44237,9 @@ class NodeType {
     /// grammar was written properly, different node types with the
     /// same name within a node group should play the same semantic
     /// role.
-    name, 
+    name,
     /// @internal
-    props, 
+    props,
     /// The id of this node in its group. Corresponds to the term ids
     /// used in the parser.
     id) {
@@ -44368,14 +44368,14 @@ class Tree extends Subtree {
     /// @internal
     constructor(
     /// @internal
-    type, 
+    type,
     /// The tree's child nodes. Children small enough to fit in a
     /// `TreeBuffer` will be represented as such, other children can be
     /// further `Tree` instances with their own internal structure.
-    children, 
+    children,
     /// The positions (offsets relative to the start of this tree) of
     /// the children.
-    positions, 
+    positions,
     /// The total length of this tree @internal
     length) {
         super();
@@ -44570,7 +44570,7 @@ class Tree extends Subtree {
             : balanceRange(this.type, NodeType.none, this.children, this.positions, 0, this.children.length, 0, maxBufferLength, this.length);
     }
     /// Build a tree from a postfix-ordered buffer of node information,
-    /// or a cursor over such a buffer. 
+    /// or a cursor over such a buffer.
     static build(data) { return buildTree(data); }
 }
 /// The empty tree
@@ -44589,11 +44589,11 @@ class TreeBuffer {
     /// Create a tree buffer @internal
     constructor(
     /// @internal
-    buffer, 
+    buffer,
     // The total length of the group of nodes in the buffer.
-    length, 
+    length,
     /// @internal
-    group, 
+    group,
     /// An optional type tag, used to tag a buffer as being part of a
     /// repetition @internal
     type = NodeType.none) {
@@ -70874,7 +70874,7 @@ function to_utf8(bytes, start, end) {
         out[out.length] = fcc(reduced(col, pos))
         col.length = 0
       }
-    } else { 
+    } else {
       out[out.length] = fcc(by)
     }
     ++idx
@@ -76345,10 +76345,10 @@ function redoEscape(str) {
             case '\r': s += '\\r' ; break;
             case '\t': s += '\\t' ; break;
             case '\v': s += '\\v' ; break;
-            default: 
+            default:
                 s += str.charAt(i);
         }
-	
+
 	return s;
 }
 
@@ -76358,7 +76358,7 @@ function is_stream(obj) {
 
 class Stream {
 
-    constructor(stream, mode, alias, 
+    constructor(stream, mode, alias,
         type       = "text", // "text" or "binary"
         reposition = true,      // true or false
         eof_action = "eof_code" // "error" or "eof_code" or "reset"
@@ -76368,7 +76368,7 @@ class Stream {
         this.mode = mode; // "read" or "write" or "append"
         this.alias = alias;
         this.type = type;
-        this.reposition = reposition; 
+        this.reposition = reposition;
         this.eof_action = eof_action;
 
         this.position = mode === "append" ? "end_of_stream" : 0;
@@ -76426,11 +76426,11 @@ class State {
     equals(obj) {
         return is_state(obj) && this.goal.equals(obj.goal) && this.substitution.equals(obj.substitution) && this.parent === obj.parent;
     }
-    
+
     clone() {
         return new State(this.goal.clone(), this.substitution.clone(), this.parent);
     }
-    
+
     toString(options) {
         if (this.goal === null) {
             return "<" + this.substitution.toString(options) + ">";
@@ -76473,17 +76473,17 @@ class Var {
     toJavaScript() {
         return this.toString();
     }
-    
+
     compile() {
         return 'new pl.type.Var("' + this.id.toString() + '")';
     }
-    
+
     compare(obj) {
         if (this.id < obj.id) return -1;
         if (this.id > obj.id) return 1;
         return 0;
     }
-    
+
     interpret(thread) {
         return _PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].error.instantiation( thread.level );
     }
@@ -76493,15 +76493,15 @@ class Var {
         if (found) return found;
         return this;
     }
-    
+
     variables() {
         return [this.id];
     }
-    
+
     rename(thread) {
         return thread.get_free_variable(this);
     }
-    
+
     equals(obj) {
         return is_variable(obj) && this.id === obj.id;
     }
@@ -76537,7 +76537,7 @@ class Num {
 
     unify(obj, _) {
         if(!this.equals(obj)) return null;
-        return new Substitution();			
+        return new Substitution();
     }
     toString(_) {
         var str = this.value.toString();
@@ -76577,13 +76577,13 @@ class Num {
     interpret( thread) {
         return this;
     }
-    
+
     toJavaScript() {
         return this.value;
     }
 }
 
-function forKeyValOfOwnProps(obj, handler) {   
+function forKeyValOfOwnProps(obj, handler) {
     const keys = Object.getOwnPropertyNames(obj);
     for (let key of keys) handler(key, obj[key]);
 }
@@ -76959,10 +76959,10 @@ class Term {
         const args = this.args.map(a => a.clone());
         return new Term(this.id, args);
     }
-    
+
     equals(obj) {
         if (!is_term(obj) || this.indicator !== obj.indicator) return false;
-        
+
         for (var i = 0; i < this.args.length; i++) {
             if (!this.args[i].equals(obj.args[i])) {
                 return false;
@@ -77013,12 +77013,12 @@ class Term {
     compare(obj) {
         if (this.args.length < obj.args.length) return -1;
         if (this.args.length > obj.args.length) return +1;
-        
+
         if (this.args.length === obj.args.length) {
             if (this.id < obj.id) return -1;
             if (this.id > obj.id) return +1;
         }
-        
+
         for (let i = 0; i < this.args.length; i++) {
             const c = _PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].compare(this.args[i], obj.args[i]);
             if (c !== 0) return c;
@@ -77032,13 +77032,13 @@ class Term {
 
 		return `new Term("${_id}", [${_args}])`
     }
-    
+
     toJavaScript() {
 		// Atom => String
 		if (this.args.length === 0 && this.indicator !== "[]/0") {
 			return this.toString();
-        } 
-        
+        }
+
         if (_PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].type.is_list(this)) {
 			// List => Array
 			var all_obj = true;
@@ -77064,16 +77064,16 @@ class Term {
     unify(obj, occurs_check) {
         if (!is_term(obj)) return null;
         if (this.indicator !== obj.indicator) return null;
-    
+
         const subs = new Substitution()
-    
+
         for (let i = 0; i < this.args.length; i++) {
             var mgu = Object(_unify__WEBPACK_IMPORTED_MODULE_1__["unify"])(this.args[i].apply(subs), obj.args[i].apply(subs), occurs_check)
             if (mgu === null) return null
             for (var x in mgu.links) subs.links[x] = mgu.links[x]
             subs = subs.apply(mgu)
         }
-    
+
         return subs
     }
 
@@ -77260,8 +77260,8 @@ function is_error ( obj ) {
 }
 
 function is_predicate_indicator( obj ) {
-    return obj instanceof Term && obj.indicator === "//2" 
-                && obj.args[0] instanceof Term && obj.args[0].args.length === 0 
+    return obj instanceof Term && obj.indicator === "//2"
+                && obj.args[0] instanceof Term && obj.args[0].args.length === 0
                 && obj.args[1] instanceof Num  && obj.args[1].is_float === false;
 }
 
@@ -77308,8 +77308,8 @@ function is_stream_position(obj) {
 
 function is_stream_property(obj) {
 	return is_term(obj) && (
-		obj.indicator === "input/0" || 
-		obj.indicator === "output/0" || 
+		obj.indicator === "input/0" ||
+		obj.indicator === "output/0" ||
 		obj.indicator === "alias/1" && (is_variable( obj.args[0] ) || is_atom( obj.args[0] )) ||
 		obj.indicator === "file_name/1" && (is_variable( obj.args[0] ) || is_atom( obj.args[0] )) ||
 		obj.indicator === "position/1" && (is_variable( obj.args[0] ) || is_stream_position( obj.args[0] )) ||
@@ -77369,7 +77369,7 @@ function str_indicator( str ) {
 }
 
 const warning = {
-			
+
 	// Singleton variables
 	singleton: function( variables, rule, line ) {
 		var list = new Term( "[]" );
@@ -77377,7 +77377,7 @@ const warning = {
 			list = new Term( ".", [new Var(variables[i]), list] );
 		return new Term( "warning", [new Term( "singleton_variables", [list, str_indicator(rule)]), new Term(".",[new Term( "line", [ new Num( line, false ) ]), new Term("[]")])] );
 	},
-	
+
 	// Failed goal
 	failed_goal: function( goal, line ) {
 		return new Term( "warning", [new Term( "failed_goal", [goal]), new Term(".",[new Term( "line", [ new Num( line, false ) ]), new Term("[]")])] );
@@ -77386,43 +77386,43 @@ const warning = {
 }
 
 const error = {
-			
+
 	// Existence error
 	existence: function( type, object, indicator ) {
 		if(typeof object === "string") object = str_indicator(object);
 		return new Term( "error", [new Term( "existence_error", [new Term( type ), object] ), str_indicator( indicator )] );
 	},
-	
+
 	// Type error
 	type: function( expected, found, indicator ) {
 		return new Term( "error", [new Term( "type_error", [new Term( expected ), found] ), str_indicator( indicator )] );
 	},
-	
+
 	// Instantation error
 	instantiation: function( indicator ) {
 		return new Term( "error", [new Term( "instantiation_error" ), str_indicator( indicator )] );
 	},
-	
+
 	// Domain error
 	domain: function( expected, found, indicator ) {
 		return new Term( "error", [new Term( "domain_error", [new Term( expected ), found]), str_indicator( indicator )] );
 	},
-	
+
 	// Representation error
 	representation: function( flag, indicator ) {
 		return new Term( "error", [new Term( "representation_error", [new Term( flag )] ), str_indicator( indicator )] );
 	},
-	
+
 	// Permission error
 	permission: function( operation, type, found, indicator ) {
 		return new Term( "error", [new Term( "permission_error", [new Term( operation ), new Term( type ), found] ), str_indicator( indicator )] );
 	},
-	
+
 	// Evaluation error
 	evaluation: function( error, indicator ) {
 		return new Term( "error", [new Term( "evaluation_error", [new Term( error )] ), str_indicator( indicator )] );
 	},
-	
+
 	// Syntax error
 	syntax: function( token, expected, last ) {
 		token = token || {value: "", line: 0, column: 0, matches: [""], start: 0};
@@ -77431,7 +77431,7 @@ const error = {
 		var info = new Term( ".", [new Term( "line", [new Num(token.line+1)] ), new Term( ".", [new Term( "column", [new Num(position+1)] ), new Term( ".", [found, new Term( "[]", [] )] )] )] );
 		return new Term( "error", [new Term( "syntax_error", [new Term( expected )] ), info] );
 	},
-	
+
 	// Syntax error by predicate
 	syntax_by_predicate: function( expected, indicator ) {
 		return new Term( "error", [new Term( "syntax_error", [new Term( expected ) ] ), str_indicator( indicator )] );
@@ -77460,7 +77460,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const pl = {
     module: {},
-    predicate: _predicates__WEBPACK_IMPORTED_MODULE_0__["predicate"], 
+    predicate: _predicates__WEBPACK_IMPORTED_MODULE_0__["predicate"],
     directive: _predicates__WEBPACK_IMPORTED_MODULE_0__["directive"]
 }
 /* harmony default export */ __webpack_exports__["default"] = (pl);
@@ -77651,21 +77651,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Elements__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Elements */ "./src/classes/libs/Elements.js");
 /* harmony import */ var _unify__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./unify */ "./src/classes/libs/unify.js");
 /**
-  * 
+  *
   * Tau Prolog. A Prolog interpreter in JavaScript.
-  * 
+  *
   * Copyright (C) 2017 - 2019 José Antonio Riaza Valverde
-  * 
+  *
   * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-  * 
+  *
   * 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-  * 
+  *
   * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-  * 
+  *
   * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-  * 
+  *
   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-  * 
+  *
   **/
 
 
@@ -77689,13 +77689,13 @@ const { fromJavaScript } = __webpack_require__(/*! ./fromJavaScript */ "./src/cl
 const type = {
 	// Objects
 	Var: _Elements__WEBPACK_IMPORTED_MODULE_6__["Var"], Num: _Elements__WEBPACK_IMPORTED_MODULE_6__["Num"], Rule: _Elements__WEBPACK_IMPORTED_MODULE_6__["Rule"], State: _Elements__WEBPACK_IMPORTED_MODULE_6__["State"], Stream: _Elements__WEBPACK_IMPORTED_MODULE_6__["Stream"], Module: _Elements__WEBPACK_IMPORTED_MODULE_6__["Module"], Substitution: _Elements__WEBPACK_IMPORTED_MODULE_6__["Substitution"], JSValue: _Elements__WEBPACK_IMPORTED_MODULE_6__["JSValue"],
-	Term: _Elements__WEBPACK_IMPORTED_MODULE_6__["Term"],  Thread, Session, 
+	Term: _Elements__WEBPACK_IMPORTED_MODULE_6__["Term"],  Thread, Session,
 	File: _TauFile__WEBPACK_IMPORTED_MODULE_3__["TauFile"],
 	Directory: _TauFile__WEBPACK_IMPORTED_MODULE_3__["TauDirectory"],
-	
+
 	// Order
 	order: [_Elements__WEBPACK_IMPORTED_MODULE_6__["Var"], _Elements__WEBPACK_IMPORTED_MODULE_6__["Num"], _Elements__WEBPACK_IMPORTED_MODULE_6__["Term"], _Elements__WEBPACK_IMPORTED_MODULE_6__["Stream"], _Elements__WEBPACK_IMPORTED_MODULE_6__["JSValue"]],
-	
+
 	// Compare types
 	compare: function( x, y ) {
 		var ord_x = this.order.indexOf(x.constructor);
@@ -77707,7 +77707,7 @@ const type = {
 		if(x.is_float) return -1;
 		if(y.is_float) return 1;
 	},
-	
+
 	is_substitution: _Elements__WEBPACK_IMPORTED_MODULE_6__["is_substitution"],
 	is_state: _Elements__WEBPACK_IMPORTED_MODULE_6__["State"].is_state,
 	is_rule: _Elements__WEBPACK_IMPORTED_MODULE_6__["is_rule"],
@@ -77789,7 +77789,7 @@ const type = {
 				},
 				flush() {
 					return true;
-				} 
+				}
 			}, "write", "user_output", "text", false, "eof_code" )
 		};
 		this.standard_input = this.streams["user_input"];
@@ -77879,7 +77879,7 @@ const type = {
 		};
 		this.thread = new Thread( this );
 	}
-	
+
 	Session.prototype.is_multifile_predicate = function( indicator ) {
 		return this.multifile_predicates.hasOwnProperty( indicator ) && this.multifile_predicates[indicator] === true;
 	};
@@ -77911,7 +77911,7 @@ const type = {
 			this.public_predicates[rule.head.indicator] = false;
 		return true;
 	};
-	
+
 	// Get classes of an operator
 	Session.prototype.__lookup_operator_classes = function( priority, operator ) {
 		if( this.__operators.hasOwnProperty( priority ) && this.__operators[priority][operator] instanceof Array ) {
@@ -77982,11 +77982,11 @@ const type = {
 			var indicator = this.rules[_indicator];
 			let rules = [];
 			let str = "\"" + _indicator + "\": [";
-	
+
 			for( var i = 0; i < indicator.length; i++ ) {
 				rules.push(indicator[i].compile());
 			}
-	
+
 			str += rules.join();
 			str += "]";
 			obj.push(str);
@@ -78013,10 +78013,10 @@ const type = {
 		this.__calls = [];
 		this.__goal_expansion = false;
 	}
-    
-	
+
+
 	// PROLOG SESSIONS AND THREADS
-	
+
 	// Parse an expression
 	Thread.prototype.parse = function( string ) {
 		var tokenizer = new _Tokenizer__WEBPACK_IMPORTED_MODULE_4__["Tokenizer"]( this );
@@ -78029,7 +78029,7 @@ const type = {
 			return false;
 		return { value: expr.value, expr: expr, tokens: tokens };
 	};
-	
+
 
 	// Run a directive
 	Thread.prototype.run_directive = function( directive ) {
@@ -78048,7 +78048,7 @@ const type = {
 	Thread.prototype.throw_warning = function( warning ) {
 		this.warnings.push( warning );
 	};
-	
+
 	// Get warnings
 	Thread.prototype.get_warnings = function() {
 		return this.warnings;
@@ -78095,12 +78095,12 @@ const type = {
 		this.debugger_states = [];
 		return Object(_parsing__WEBPACK_IMPORTED_MODULE_5__["parseQuery"])(this, string);
 	};
-	
+
 	// Get first choice point
 	Thread.prototype.head_point = function() {
 		return this.points[this.points.length-1];
 	};
-	
+
 	// Get free variable
 	Thread.prototype.get_free_variable = function( variable ) {
 		var variables = [];
@@ -78119,7 +78119,7 @@ const type = {
 		}
 		return new _Elements__WEBPACK_IMPORTED_MODULE_6__["Var"]( this.session.renamed_variables[variable.id] );
 	};
-	
+
 	// Get next free variable
 	Thread.prototype.next_free_variable = function() {
 		this.session.rename++;
@@ -78131,34 +78131,34 @@ const type = {
 		}
 		return new _Elements__WEBPACK_IMPORTED_MODULE_6__["Var"]( format_variable( this.session.rename ) );
 	};
-	
+
 	// Check if a predicate is public
 	Thread.prototype.is_public_predicate = function( indicator ) {
 		return this.session.is_public_predicate( indicator );
 	};
-	
+
 	// Check if a predicate is multifile
 	Thread.prototype.is_multifile_predicate = function( indicator ) {
 		return this.session.is_multifile_predicate( indicator );
 	};
-	
+
 	// Insert states at the beginning
 	Thread.prototype.prepend = function( states ) {
 		for(var i = states.length-1; i >= 0; i--)
 			this.points.push( states[i] );
 	};
-	
+
 	// Remove the selected term and prepend the current state
 	Thread.prototype.success = function( point, parent ) {
 		var parent = typeof parent === "undefined" ? point : parent;
 		this.prepend( [new _Elements__WEBPACK_IMPORTED_MODULE_6__["State"]( point.goal.replace( null ), point.substitution, parent ) ] );
 	};
-	
+
 	// Throw error
 	Thread.prototype.throw_error = function( error ) {
 		this.prepend( [new _Elements__WEBPACK_IMPORTED_MODULE_6__["State"]( new _Elements__WEBPACK_IMPORTED_MODULE_6__["Term"]( "throw", [error] ), new _Elements__WEBPACK_IMPORTED_MODULE_6__["Substitution"](), null, null )] );
 	};
-	
+
 	// Selection rule
 	Thread.prototype.step_rule = function( mod, atom ) {
 		var name = atom.indicator;
@@ -78174,7 +78174,7 @@ const type = {
 		}
 		return null;
 	};
-	
+
 	// Resolution step
 	Thread.prototype.step = function() {
 		if( this.points.length === 0 ) {
@@ -78188,12 +78188,12 @@ const type = {
 
 		if( Object(_Elements__WEBPACK_IMPORTED_MODULE_6__["is_variable"])( point.goal ))
 			return this.throw_error( error.instantiation( this.level ) );
-		
-		if (!Object(_Elements__WEBPACK_IMPORTED_MODULE_6__["is_term"])( point.goal)) 
-			return this.throw_error( error.type( "callable", point.goal, this.level ) );
-		
 
-			
+		if (!Object(_Elements__WEBPACK_IMPORTED_MODULE_6__["is_term"])( point.goal))
+			return this.throw_error( error.type( "callable", point.goal, this.level ) );
+
+
+
 		var atom = point.goal.select();
 		var mod = null;
 		var states = [];
@@ -78203,7 +78203,7 @@ const type = {
 				while( level.parent !== null && level.parent.goal.search( atom ) )
 					level = level.parent;
 				this.level = level.parent === null ? "top_level/0" : level.parent.goal.select().indicator;
-				
+
 				if( Object(_Elements__WEBPACK_IMPORTED_MODULE_6__["is_term"])( atom ) && atom.indicator === ":/2" ) {
 					mod = atom.args[0].id;
 					atom = atom.args[1];
@@ -78257,14 +78257,14 @@ const type = {
 
 		return asyn;
 	};
-	
+
 	// Find next computed answer
 	Thread.prototype.answer = function(success = function(_){}) {
 		this.__calls.push(success)
 		if (this.__calls.length > 1) return;
 		this.again();
 	}
-	
+
 	// Find all computed answers
 	Thread.prototype.answers = function( callback, max = 1000, after = function(){}) {
 		var thread = this;
@@ -78312,8 +78312,8 @@ const type = {
 			}
 		}
 	};
-	
-	
+
+
 
 
 
@@ -78380,17 +78380,17 @@ const type = {
 	Session.prototype.get_flag = function( flag ) {
 		return this.flag[flag];
 	};
-	
-	
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = (_PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"]);
 
 
 Object.assign(_PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"], {
-		utils: { str_indicator, cd: _TauFile__WEBPACK_IMPORTED_MODULE_3__["cd"] },		
-		fromJavaScript,		// JavaScript to Prolog		
+		utils: { str_indicator, cd: _TauFile__WEBPACK_IMPORTED_MODULE_3__["cd"] },
+		fromJavaScript,		// JavaScript to Prolog
 		type,				// Types
-		arithmetic: _arithmetic__WEBPACK_IMPORTED_MODULE_2__["arithmetic"],			// Arithmetic functions		
+		arithmetic: _arithmetic__WEBPACK_IMPORTED_MODULE_2__["arithmetic"],			// Arithmetic functions
 		flag,				// Flags
 		compare,			// Compare
 		operate,			// Operate
@@ -78501,7 +78501,7 @@ function flatten_error(error) {
 	}
 	return obj;
 }
-	
+
 
 
 
@@ -78522,13 +78522,13 @@ function flatten_error(error) {
 // 		if (is_variable(name)) 	  return thread.throw_error(error.instantiation(indicator));
 // 		if (is_variable(args))    return thread.throw_error(error.instantiation(indicator));
 
-		
-// 		if (!is_atom(name) && (!is_js_object(name) || typeof name.value !== "function")) 
+
+// 		if (!is_atom(name) && (!is_js_object(name) || typeof name.value !== "function"))
 // 			return thread.throw_error(error.type("atom_or_JSValueFUNCTION", name, indicator));
-		
-// 		if (!pl.type.is_list(args)) 
+
+// 		if (!pl.type.is_list(args))
 // 			return thread.throw_error(error.type("list", args, indicator));
-		
+
 // 		var ctx = context.toJavaScript();
 // 		var fn = is_atom(name) ? ctx[name.id] : name.toJavaScript();
 // 		if (typeof fn === "function") {
@@ -78544,12 +78544,12 @@ function flatten_error(error) {
 // 				arr.push(pltojs);
 // 				pointer = pointer.args[1];
 // 			}
-// 			if (is_variable(pointer)) 
+// 			if (is_variable(pointer))
 // 				return thread.throw_error(error.instantiation(indicator));
-			
-// 			if (pointer.indicator !== "[]/0") 
+
+// 			if (pointer.indicator !== "[]/0")
 // 				return thread.throw_error(error.type("list", args, indicator));
-			
+
 // 			var value;
 // 			try {
 // 				value = fn.apply(ctx, arr);
@@ -78759,7 +78759,7 @@ function escapeAtom(str, quote) {
 		}
 		return atom;
 }
-	
+
 
 
 	// String to num
@@ -78962,7 +78962,7 @@ class Tokenizer {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "arithmetic", function() { return arithmetic; });
 const arithmetic = {
-    
+
 	evaluation: {
 		"e/0": {
 			type_args: null,
@@ -79093,7 +79093,7 @@ const arithmetic = {
 			type_args: null,
 			type_result: true,
 			fn: function( x, thread ) {
-				return x > 0 ? Math.log( x ) : this.error.evaluation( "undefined", thread.__call_indicator ); 
+				return x > 0 ? Math.log( x ) : this.error.evaluation( "undefined", thread.__call_indicator );
 			}
 		},
 		"+/2": {
@@ -79115,7 +79115,7 @@ const arithmetic = {
 			type_args: null,
 			type_result: true,
 			fn: function( x, y, thread ) {
-				return y ? x / y : this.error.evaluation( "zero_division", thread.__call_indicator ); 
+				return y ? x / y : this.error.evaluation( "zero_division", thread.__call_indicator );
 			}
 		},
 		"///2": {
@@ -79123,13 +79123,13 @@ const arithmetic = {
 			type_result: false,
 			fn: function(x, y, thread) {
 				if (y === 0) this.error.evaluation("zero_division", thread.__call_indicator)
-				return Math.trunc(x/y) 
+				return Math.trunc(x/y)
 			}
 		},
 		"div/2": {
 			type_args: false,
 			type_result: false,
-			fn: function(x, y, thread) { 
+			fn: function(x, y, thread) {
 				if (y === 0) this.error.evaluation("zero_division", thread.__call_indicator)
 				return Math.floor(x/y)
 			}
@@ -79139,7 +79139,7 @@ const arithmetic = {
 			type_result: true,
 			fn: function( x, y, thread) {
 				//console.log(this) == gl
-				return Math.pow(x, y); 
+				return Math.pow(x, y);
 			}
 		},
 		"^/2": {
@@ -79191,18 +79191,18 @@ const arithmetic = {
 		"max/2": {
 			type_args: null,
 			type_result: null,
-			fn: function( x, y, _ ) { 
+			fn: function( x, y, _ ) {
 				return Math.max( x, y )
 			}
 		},
 		"min/2": {
 			type_args: null,
 			type_result: null,
-			fn: function( x, y, _ ) { 
+			fn: function( x, y, _ ) {
 				return Math.min( x, y )
 			}
 		}
-		
+
 	}
 }
 
@@ -79216,7 +79216,7 @@ const arithmetic = {
 /***/ (function(module, exports, __webpack_require__) {
 
 const { Num, Term } = __webpack_require__(/*! ./Elements */ "./src/classes/libs/Elements.js");
-    
+
 const flag = {
 	// Bounded numbers
 	bounded: {
@@ -79512,7 +79512,7 @@ __webpack_require__.r(__webpack_exports__);
 const ERROR = 0;
 const SUCCESS = 1;
 
-	
+
 
 
 
@@ -79581,12 +79581,12 @@ function parseExpr(thread, tokens, start, priority, toplevel) {
 
 	var next_priority = __get_next_priority(thread.session.__operators, priority);
 	var aux_start = start;
-	
+
 	// Prefix operators
 	if(tokens[start].name === "atom" && tokens[start+1] && (tokens[start].space || tokens[start+1].name !== "l_paren")) {
 		var token = tokens[start++];
 		var classes = thread.session.__lookup_operator_classes(priority, token.value);
-		
+
 		// Associative prefix operator
 		if(classes && classes.indexOf("fy") > -1) {
 			var expr = parseExpr(thread, tokens, start, priority, toplevel);
@@ -79709,7 +79709,7 @@ function parseTerm(thread, tokens, start, toplevel) {
 		start++;
 		if(tokens[start-1].space) return {type: SUCCESS, len: start, value: new _Elements__WEBPACK_IMPORTED_MODULE_1__["Term"](atom.value, exprs)};
 		if(tokens[start] && tokens[start].name === "l_paren") {
-			if(tokens[start+1] && tokens[start+1].name === "r_paren") 
+			if(tokens[start+1] && tokens[start+1].name === "r_paren")
 				return {type: ERROR, derived: true, value: _Errors__WEBPACK_IMPORTED_MODULE_3__["error"].syntax(tokens[start+1], "argument expected")};
 			var expr = parseExpr(thread, tokens, ++start, "999", true);
 			if(expr.type === ERROR) {
@@ -79742,14 +79742,14 @@ function parseTerm(thread, tokens, start, toplevel) {
 // Parse a list
 function parseList(thread, tokens, start) {
 	if(!tokens[start]) return {
-		type: ERROR, 
-		derived: false, 
+		type: ERROR,
+		derived: false,
 		value: _Errors__WEBPACK_IMPORTED_MODULE_3__["error"].syntax(tokens[start-1], "[ expected")
 	}
 
 	if(tokens[start].name !== "l_brace") return {
-		type: ERROR, 
-		derived: false, 
+		type: ERROR,
+		derived: false,
 		value: _Errors__WEBPACK_IMPORTED_MODULE_3__["error"].syntax(tokens[start], "list expected")
 	}
 
@@ -79764,7 +79764,7 @@ function parseList(thread, tokens, start) {
 		}
 		return {type: ERROR, derived: true, value: _Errors__WEBPACK_IMPORTED_MODULE_3__["error"].syntax(tokens[start], "] expected")};
 	}
-		
+
 	start = expr.len;
 
 	while (tokens[start] && tokens[start].name === "atom" && tokens[start].value === ",") {
@@ -79793,8 +79793,8 @@ function parseList(thread, tokens, start) {
 		return {type: SUCCESS, len: start+1, value: arrayToList(exprs, cons) };
 	else
 		return {type: ERROR, derived: true, value: _Errors__WEBPACK_IMPORTED_MODULE_3__["error"].syntax(tokens[start] ? tokens[start] : tokens[start-1], bar ? "] expected" : ", or | or ] expected", !tokens[start])};
-	
-	
+
+
 }
 
 // Parse a rule
@@ -79808,14 +79808,14 @@ function parseRule(thread, tokens, start) {
 	start = expr.len;
 	if(!tokens[start] && tokens[start].name !== "atom" && tokens[start].raw !== ".")
 		return { type: ERROR, value: _Errors__WEBPACK_IMPORTED_MODULE_3__["error"].syntax(tokens[start] ? tokens[start] : tokens[start-1], ". or operator expected") };
-	
+
 
 	start++;
-	if(!Object(_Elements__WEBPACK_IMPORTED_MODULE_1__["is_term"])(expr.value)) 
+	if(!Object(_Elements__WEBPACK_IMPORTED_MODULE_1__["is_term"])(expr.value))
 		return { type: ERROR, value: _Errors__WEBPACK_IMPORTED_MODULE_3__["error"].syntax(tokens[start], "callable expected") };
-	
-	
-	
+
+
+
 	if(expr.value.indicator === ":-/2") {
 		rule = new _Elements__WEBPACK_IMPORTED_MODULE_1__["Rule"](expr.value.args[0], body_conversion(expr.value.args[1]))
 		obj = {
@@ -79851,7 +79851,7 @@ function parseRule(thread, tokens, start) {
 			thread.throw_warning( pl.warning.singleton( singleton, rule.head.indicator, line ) );
 	}
 	return obj;
-	
+
 }
 
 // Parse a program
@@ -79866,7 +79866,7 @@ function parseProgram(thread, string, options = {}) {
 	while( tokens !== null && tokens[n] ) {
 		var expr = parseRule(thread, tokens, n);
 		if( expr.type === ERROR ) return new _Elements__WEBPACK_IMPORTED_MODULE_1__["Term"]("throw", [expr.value]);
-		
+
 		// Term expansion
 		var term_expansion = thread.session.rules["term_expansion/2"];
 		if (term_expansion && term_expansion.length > 0) {
@@ -79888,7 +79888,7 @@ function parseProgram(thread, string, options = {}) {
 		}
 
 		n = expr.len;
-		if(expr.value.body === null && expr.value.head.indicator === ":-/1" && 
+		if(expr.value.body === null && expr.value.head.indicator === ":-/1" &&
 		   expr.value.head.args[0].indicator === "char_conversion/2") {
 			tokens = tokenizer.get_tokens(n);
 			n = 0;
@@ -79900,7 +79900,7 @@ function parseProgram(thread, string, options = {}) {
 function parseGoalExpansion(thread, head, term, set, origin) {
 	var n_thread = new Thread(thread.session);
 	n_thread.__goal_expansion = true;
-	
+
 	//console.log("parseGoalExpansion(thread, head, term, set, origin)")
 
 	const varterm = thread.next_free_variable();
@@ -80018,13 +80018,13 @@ function parseQuery(thread, string) {
 		} else {
 			return new _Elements__WEBPACK_IMPORTED_MODULE_1__["Term"]("throw", [_Errors__WEBPACK_IMPORTED_MODULE_3__["error"].syntax(token ? token : tokens[expr_position-1], ". or operator expected", !token)] );
 		}
-		
+
 		n = expr.len + 1;
-		
+
 	} while( true );
 	return true;
 }
-	
+
 function body_conversion( expr ) {
 	if (Object(_Elements__WEBPACK_IMPORTED_MODULE_1__["is_variable"])(expr)) return new _Elements__WEBPACK_IMPORTED_MODULE_1__["Term"]( "call", [expr] );
 	if (Object(_Elements__WEBPACK_IMPORTED_MODULE_1__["is_term"])( expr ) && [",/2", ";/2", "->/2"].indexOf(expr.indicator) !== -1)
@@ -80039,7 +80039,7 @@ function arrayToList( array, cons ) {
 	return list;
 }
 
-	
+
 function __get_next_priority(__operators, priority) {
 	var max = 0;
 	priority = parseInt( priority );
@@ -80087,27 +80087,27 @@ const predicates_arithmetic_compare = {
 		var cmp = arithmetic_compare(thread, atom.args[0], atom.args[1]);
 		if (is_term(cmp)) return thread.throw_error(cmp);
         if (cmp === 0) thread.success(point)
-	},	
+	},
 	"=\\=/2": function (thread, point, atom) {
 		var cmp = arithmetic_compare(thread, atom.args[0], atom.args[1]);
 		if (is_term(cmp)) return thread.throw_error(cmp);
         if (cmp !== 0) thread.success(point)
-	},	
+	},
 	"</2": function (thread, point, atom) {
 		var cmp = arithmetic_compare(thread, atom.args[0], atom.args[1]);
 		if (is_term(cmp)) return thread.throw_error(cmp);
         if (cmp < 0) thread.success(point)
-	},	
+	},
 	"=</2": function (thread, point, atom) {
 		var cmp = arithmetic_compare(thread, atom.args[0], atom.args[1]);
 		if (is_term(cmp)) return thread.throw_error(cmp);
         if (cmp <= 0) thread.success(point)
-	},	
+	},
 	">/2": function (thread, point, atom) {
 		var cmp = arithmetic_compare(thread, atom.args[0], atom.args[1]);
 		if (is_term(cmp)) return thread.throw_error(cmp);
         if (cmp > 0) thread.success(point)
-	},	
+	},
 	">=/2": function (thread, point, atom) {
 		var cmp = arithmetic_compare(thread, atom.args[0], atom.args[1]);
 		if (is_term(cmp)) return thread.throw_error(cmp);
@@ -80141,44 +80141,44 @@ function stringLength(str) {
 const atom_processing = {
 
 	// ATOM PROCESSING
-	
+
 	// atom_length/2
 	"atom_length/2": function (thread, point, atom) {
 		if (is_variable(atom.args[0]))
 			return thread.throw_error(error.instantiation(atom.indicator));
-		
+
 		if (!is_atom(atom.args[0]))
 			return thread.throw_error(error.type("atom", atom.args[0], atom.indicator));
-		
+
 		if (!is_variable(atom.args[1]) && !is_integer(atom.args[1]))
 			return thread.throw_error(error.type("integer", atom.args[1], atom.indicator));
-		
-		if (is_integer(atom.args[1]) && atom.args[1].value < 0 ) 
+
+		if (is_integer(atom.args[1]) && atom.args[1].value < 0 )
 			return thread.throw_error(error.domain("not_less_than_zero", atom.args[1], atom.indicator));
-		
-		
-		
+
+
+
 		var length = new Num(stringLength(atom.args[0].id), false);
 		thread.prepend([new State(point.goal.replace(new Term("=", [length, atom.args[1]])), point.substitution, point)])
 	},
-	
+
 	// atom_concat/3
 	"atom_concat/3": function atom_concat$3 (thread, point, atom) {
 		const [ start, end, whole ] = atom.args;
 
-		if (is_variable(whole) && (is_variable(start ) || is_variable(end )) ) 
+		if (is_variable(whole) && (is_variable(start ) || is_variable(end )) )
 			return thread.throw_error(error.instantiation(atom.indicator));
-		
-		 if (!is_variable(start) && !is_atom(start)) 
+
+		 if (!is_variable(start) && !is_atom(start))
 			return thread.throw_error(error.type("atom", start, atom.indicator));
-		
-		 if (!is_variable(end) && !is_atom(end)) 
+
+		 if (!is_variable(end) && !is_atom(end))
 			return thread.throw_error(error.type("atom", end, atom.indicator));
-		
-		 if (!is_variable(whole) && !is_atom(whole)) 
+
+		 if (!is_variable(whole) && !is_atom(whole))
 			return thread.throw_error(error.type("atom", whole, atom.indicator));
-		
-		 
+
+
 		var v1 = is_variable(start);
 		var v2 = is_variable(end);
 		//var v3 = is_variable(whole);
@@ -80186,22 +80186,22 @@ const atom_processing = {
 		if (!v1 && !v2) {
 			const goal = new Term("=", [whole, new Term(start.id + end.id )]);
 			return thread.prepend([new State(point.goal.replace(goal ), point.substitution, point)])
-		} 
-		
+		}
+
 		if (v1 && !v2) {
 			const str = whole.id.substr(0, whole.id.length - end.id.length);
 			if (str + end.id !== whole.id ) return;
 			const goal = new Term("=", [start, new Term(str )]);
 			return thread.prepend([new State(point.goal.replace(goal ), point.substitution, point)])
-		} 
-		
+		}
+
 		if (v2 && !v1) {
 			const str = whole.id.substr(start.id.length);
 			if (start.id + str !== whole.id ) return;
 			const goal = new Term("=", [end, new Term(str )]);
-			return thread.prepend([new State(point.goal.replace(goal ), point.substitution, point)])					
+			return thread.prepend([new State(point.goal.replace(goal ), point.substitution, point)])
 		}
-			
+
 		var states = [];
 		for(var i = 0; i <= whole.id.length; i++) {
 			var atom1 = new Term(whole.id.substr(0, i));
@@ -80211,7 +80211,7 @@ const atom_processing = {
 		}
 		thread.prepend(states);
 	},
-	
+
 	// sub_atom/5
 	"sub_atom/5": function (thread, point, atom) {
 		var i, atom1 = atom.args[0], before = atom.args[1], length = atom.args[2], after = atom.args[3], subatom = atom.args[4];
@@ -80285,7 +80285,7 @@ const atom_processing = {
 			thread.prepend(states);
 		}
 	},
-	
+
 	// atom_chars/2
 	"atom_chars/2": function (thread, point, atom) {
 		var atom1 = atom.args[0], list = atom.args[1];
@@ -80303,7 +80303,7 @@ const atom_processing = {
 					list1 = new Term(".", [new Term(atom1.id.charAt(i)), list1]);
 				}
 				thread.prepend([new State(point.goal.replace(new Term("=", [list, list1])), point.substitution, point)])
-			} else {			
+			} else {
 				var pointer = list;
 				var v = is_variable(atom1);
 				var str = "";
@@ -80331,7 +80331,7 @@ const atom_processing = {
 			}
 		}
 	},
-	
+
 	// atom_codes/2
 	"atom_codes/2": function (thread, point, atom) {
 		var atom1 = atom.args[0], list = atom.args[1];
@@ -80349,7 +80349,7 @@ const atom_processing = {
 					list1 = new Term(".", [new Num(atom1.id.codePointAt(i), false ), list1]);
 				}
 				thread.prepend([new State(point.goal.replace(new Term("=", [list, list1])), point.substitution, point)])
-			} else {			
+			} else {
 				var pointer = list;
 				var v = is_variable(atom1);
 				var str = "";
@@ -80377,7 +80377,7 @@ const atom_processing = {
 			}
 		}
 	},
-	
+
 	// char_code/2
 	"char_code/2": function (thread, point, atom) {
 		var char = atom.args[0], code = atom.args[1];
@@ -80393,7 +80393,7 @@ const atom_processing = {
         if (!is_variable(code) && !is_character_code(code)) {
 			return thread.throw_error(error.representation("character_code", atom.indicator));
         }
-        
+
 		if (is_variable(code)) {
 			var code1 = new Num(char.id.codePointAt(0), false);
 			thread.prepend([new State(point.goal.replace(new Term("=", [code1, code])), point.substitution, point)])
@@ -80402,7 +80402,7 @@ const atom_processing = {
 				thread.prepend([new State(point.goal.replace(new Term("=", [char1, char])), point.substitution, point)])
 		}
 	},
-	
+
 	// number_chars/2
 	"number_chars/2": function (thread, point, atom) {
 		var str, num = atom.args[0], list = atom.args[1];
@@ -80417,7 +80417,7 @@ const atom_processing = {
         }
         {
 			var isvar = is_variable(num);
-			if (!is_variable(list)) {	
+			if (!is_variable(list)) {
 				var pointer = list;
 				var total = true;
 				str = "";
@@ -80468,24 +80468,24 @@ const atom_processing = {
 			}
 		}
 	},
-	
+
 	// number_codes/2
 	"number_codes/2": function (thread, point, atom) {
         var str
         const { args: [ num, list ], indicator } = atom;
-        
+
 		if (is_variable(num) && is_variable(list))
 			return thread.throw_error(error.instantiation(indicator));
-    
+
         if (!is_variable(num) && !is_number(num))
 			return thread.throw_error(error.type("number", num, indicator))
-    
+
         if (!is_variable(list) && !is_list(list))
 			return thread.throw_error(error.type("list", list, indicator))
-    
+
         {
 			var isvar = is_variable(num);
-			if (!is_variable(list)) {	
+			if (!is_variable(list)) {
 				var pointer = list;
 				var total = true;
 				str = "";
@@ -80503,12 +80503,12 @@ const atom_processing = {
 					pointer = pointer.args[1];
 				}
 				total = total && is_empty_list(pointer);
-				if (!is_empty_list(pointer) && !is_variable(pointer)) 
+				if (!is_empty_list(pointer) && !is_variable(pointer))
                     return thread.throw_error(error.type("list", list, indicator));
-                    
-				if (!total && isvar) 
+
+				if (!total && isvar)
 					return thread.throw_error(error.instantiation(indicator));
-                
+
                 if (total) {
 					if (is_variable(pointer) && isvar) {
 						thread.throw_error(error.instantiation(indicator));
@@ -80535,48 +80535,48 @@ const atom_processing = {
 			}
 		}
 	},
-	
+
 	// upcase_atom/2
 	"upcase_atom/2": function (thread, point, atom) {
         const { args: [ original, upcase ], indicator } = atom;
-        
-		if (is_variable(original)) 
+
+		if (is_variable(original))
             return thread.throw_error(error.instantiation(indicator))
-            
-        if (!is_atom(original)) 
+
+        if (!is_atom(original))
             return thread.throw_error(error.type("atom", original, indicator))
 
         if (!is_variable(upcase) && !is_atom(upcase))
 			return thread.throw_error(error.type("atom", upcase, indicator))
-        
-        
+
+
 		thread.prepend([new State(point.goal.replace(new Term("=", [upcase, new Term(original.id.toUpperCase(), [])])), point.substitution, point)])
-		
+
 	},
-	
+
 	// downcase_atom/2
 	"downcase_atom/2": function (thread, point, atom) {
         const { args: [ original, downcase ], indicator } = atom
 
 		if (is_variable(original))
 			return thread.throw_error(error.instantiation(indicator))
-        
+
         if (!is_atom(original))
 			return thread.throw_error(error.type("atom", original, indicator))
-        
+
         if (!is_variable(downcase) && !is_atom(downcase))
 			return thread.throw_error(error.type("atom", downcase, indicator))
-        
+
 		thread.prepend([
             new State(point.goal.replace(
-                new Term("=", [ 
+                new Term("=", [
                     downcase,
                     new Term(original.id.toLowerCase(), [])
                 ])
             ), point.substitution, point)
         ]);
 	},
-	
+
 	// atomic_list_concat/2
 	"atomic_list_concat/2": function (thread, point, atom) {
         const { args: [ list, concat ] } = atom
@@ -80584,14 +80584,14 @@ const atom_processing = {
 		thread.prepend([
             new State(point.goal.replace(
                 new Term("atomic_list_concat", [
-                    list, 
-                    new Term("", []), 
+                    list,
+                    new Term("", []),
                     concat
                 ])
             ), point.substitution, point)
         ])
 	},
-	
+
 	// atomic_list_concat/3
 	"atomic_list_concat/3": function (thread, point, atom) {
 		var list = atom.args[0], separator = atom.args[1], concat = atom.args[2];
@@ -80604,14 +80604,14 @@ const atom_processing = {
         if (!is_variable(concat) && !is_atom(concat)) {
 			return thread.throw_error(error.type("atom", concat, atom.indicator));
         }
-        
+
 		if (!is_variable(concat)) {
 			var atomic = arrayToList(
 				concat.id.split(separator.id).map(id => new Term(id, []))
 			)
 			return thread.prepend([new State(point.goal.replace(new Term("=", [atomic, list])), point.substitution, point)])
         }
-        
+
 		var id = "";
 		var pointer = list;
 		while (is_term(pointer) && pointer.indicator === "./2") {
@@ -80627,7 +80627,7 @@ const atom_processing = {
 				id += "" + pointer.args[0].value;
 			pointer = pointer.args[1];
         }
-        
+
 		id = new Term(id, []);
 		if (is_variable(pointer)) {
 			thread.throw_error(error.instantiation(atom.indicator));
@@ -80697,7 +80697,7 @@ function dynamic$1(thread, atom) {
 }
 
 const directives = {
-			
+
 	// dynamic/1
 	"dynamic/1": dynamic$1,
     // dynamic/[2..]
@@ -80706,7 +80706,7 @@ const directives = {
 			dynamic$1(thread, new Term("dynamic", [atom.args[i]]));
 		}
 	},
-	
+
 	// multifile/1
 	"multifile/1": function(thread, atom) {
 		var indicator = atom.args[0];
@@ -80729,7 +80729,7 @@ const directives = {
 			thread.session.multifile_predicates[atom.args[0].args[0].id + "/" + atom.args[0].args[1].value] = true;
 		}
 	},
-	
+
 	// set_prolog_flag
 	"set_prolog_flag/2": function(thread, atom) {
 		var flag = atom.args[0], value = atom.args[1];
@@ -80748,10 +80748,10 @@ const directives = {
         if (!is_modifiable_flag(flag)) {
 			return thread.throw_error(error.permission("modify", "flag", flag, atom.indicator));
         }
-        
+
 		thread.session.flag[flag.id] = value;
 	},
-	
+
 	// use_module/1
 	"use_module/1": function(thread, atom) {
 		var module = atom.args[0];
@@ -80761,7 +80761,7 @@ const directives = {
         if (!is_term(module)) {
 			return thread.throw_error(error.type("term", module, atom.indicator));
         }
-        
+
 		if (is_module(module)) {
 			var name = module.args[0].id;
 			if(!thread.session.modules.includes(name))
@@ -80771,7 +80771,7 @@ const directives = {
 			// error no existe modulo
 		}
 	},
-	
+
 	// char_conversion/2
 	"char_conversion/2": function(thread, atom) {
 		const { args: [ inchar, outchar ], indicator } = atom;
@@ -80780,18 +80780,18 @@ const directives = {
 		if (is_variable(outchar)) return thread.throw_error(error.instantiation(indicator));
         if (!is_character(inchar))  return thread.throw_error(error.type("character", inchar, indicator));
         if (!is_character(outchar)) return thread.throw_error(error.type("character", outchar, indicator));
-        
+
 		if (inchar.id === outchar.id) {
 			delete thread.session.__char_conversion[inchar.id];
 		} else {
 			thread.session.__char_conversion[inchar.id] = outchar.id;
 		}
 	},
-	
+
 	// op/3
 	"op/3": function(thread, atom) {
 		const { args: [ priority, type, operator ], indicator } = atom;
-		
+
 		if (is_variable(priority)) return thread.throw_error(error.instantiation(indicator));
 		if (is_variable(type))	   return thread.throw_error(error.instantiation(indicator));
 		if (is_variable(operator)) return thread.throw_error(error.instantiation(indicator));
@@ -80799,7 +80799,7 @@ const directives = {
         if (!is_integer(priority))	return thread.throw_error(error.type("integer", priority, atom.indicator));
         if (!is_atom(type))			return thread.throw_error(error.type("atom", type, atom.indicator));
         if (!is_atom(operator))		return thread.throw_error(error.type("atom", operator, atom.indicator));
-        
+
         if (priority.value < 0 || priority.value > 1200) {
 			return thread.throw_error(error.domain("operator_priority", priority, atom.indicator));
         }
@@ -80812,7 +80812,7 @@ const directives = {
         if (["fy", "fx", "yf", "xf", "xfx", "yfx", "xfy"].indexOf(type.id ) === -1) {
 			return thread.throw_error(error.domain("operator_specifier", type, atom.indicator));
         }
-        
+
 		var fix = { prefix: null, infix: null, postfix: null };
 		for(const priority in thread.session.__operators) {
 			if(!thread.session.__operators.hasOwnProperty(priority)) continue;
@@ -80924,16 +80924,16 @@ function callN(n) {
 
 		if(is_variable(closure) )
 			return thread.throw_error(error.instantiation(thread.level));
-	
+
 		if(!is_callable(closure) )
 			return thread.throw_error(error.type("callable", closure, thread.level));
-	
-		
+
+
 		var goal = new Term(closure.id, closure.args.concat(args));
 		thread.prepend([new State(point.goal.replace(goal ), point.substitution, point)])
 	};
 }
-	
+
 
 
 
@@ -80965,15 +80965,15 @@ const predicates = {
 
 
 
-	
+
 	// INPUT AND OUTPUT
-	
+
 	// op/3
 	"op/3": function (thread, point, atom) {
 		if (_PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].directive["op/3"](thread, atom))
 			thread.success(point)
 	},
-	
+
 	// current_op/3
 	"current_op/3": function (thread, point, atom) {
 		var priority = atom.args[0], specifier = atom.args[1], operator = atom.args[2];
@@ -81019,11 +81019,11 @@ const predicates = {
 			]);
 		}
 	},
-	
+
 	// !/0 (cut)
 	"!/0": function (thread, point, atom) {
 		let parent_cut = point
-		let last_cut = null 
+		let last_cut = null
 		let states = []
 
 		while(parent_cut.parent !== null && parent_cut.parent.goal.search(atom)) {
@@ -81044,22 +81044,22 @@ const predicates = {
 			while(node !== null && node !== parent_cut.parent) node = node.parent;
 			if (node === null && node !== parent_cut.parent) states.push(state);
         }
-        
+
 		thread.points = states.reverse();
 		thread.success(point);
 	},
-	
+
 	// \+ (negation)
 	"\\+/1": function (thread, point, atom) {
 		var goal = atom.args[0];
 		if (is_variable(goal)) {
 			return thread.throw_error(error.instantiation(thread.level));
-		} 
+		}
 		if (!is_callable(goal)) {
 			return thread.throw_error(error.type("callable", goal, thread.level));
-		} 
-		
-		
+		}
+
+
 			// TRANSPARENT VERSION OF THE NEGATION
 			/*var neg_thread;
 			if(point.negation_thread) {
@@ -81081,34 +81081,34 @@ const predicates = {
 				thread.again(answer !== null);
 			});
 			return true;*/
-			
+
 			// '\+'(X) :- call(X), !, fail.
 			// '\+'(_).
 		thread.prepend([
 			new State(point.goal.replace(new Term(",", [new Term(",", [ new Term("call", [goal] ), new Term("!", []) ] ), new Term("fail", []) ])), point.substitution, point),
 			new State(point.goal.replace(null ), point.substitution, point)
 		]);
-		
+
 	},
-	
+
 	// ->/2 (implication)
 	"->/2": function (thread, point, atom) {
 		var cond = atom.args[0], then = atom.args[1];
 		var goal = point.goal.replace(new Term(",", [cond, new Term(",", [new Term("!" ), then] )]));
 		thread.prepend([new State(goal, point.substitution, point)])
 	},
-	
+
 	// fail/0
 	"fail/0": function(_1, _2, _3) {},
-	
+
 	// false/0
 	"false/0": function(_1, _2, _3) {},
-	
+
 	// true/0
 	"true/0": function(thread, point, _) {
 		thread.success(point)
 	},
-	
+
 	// call/1..8
 	"call/1": callN(1),
 	"call/2": callN(2),
@@ -81118,26 +81118,26 @@ const predicates = {
 	"call/6": callN(6),
 	"call/7": callN(7),
 	"call/8": callN(8),
-	
+
 	// once/1
 	"once/1": function (thread, point, atom) {
 		var goal = atom.args[0];
 		thread.prepend([new State(point.goal.replace(new Term(",", [new Term("call", [goal] ), new Term("!", [])])), point.substitution, point)])
 	},
-	
+
 	// forall/2
 	"forall/2": function (thread, point, atom) {
 		var generate = atom.args[0], test = atom.args[1];
 		thread.prepend([new State(point.goal.replace(new Term("\\+", [new Term(",", [new Term("call", [generate] ), new Term("\\+", [new Term("call", [test] )] )] )])), point.substitution, point)])
 	},
-	
+
 	// repeat/0
 	"repeat/0": function(thread, point, _) {
 		thread.prepend([new State(point.goal.replace(null ), point.substitution, point), point]);
 	},
-	
+
 	// EXCEPTIONS
-	
+
 	// throw/1
 	"throw/1": function (thread, point, atom) {
 		if (is_variable(atom.args[0])) {
@@ -81145,7 +81145,7 @@ const predicates = {
         }
 		return thread.throw_error(atom.args[0]);
     },
-        
+
 	// catch/3
 	"catch/3": function (thread, point, atom) {
 		var points = thread.points;
@@ -81217,9 +81217,9 @@ const predicates = {
 		};
 		thread.__calls.unshift(callback);
 	},
-	
+
 	// UNIFICATION
-	
+
 	// =/2 (unification)
 	"=/2": function (thread, point, atom) {
 		var occurs_check = thread.session.get_flag("occurs_check").indicator === "true/0";
@@ -81232,7 +81232,7 @@ const predicates = {
 			thread.prepend([state]);
 		}
 	},
-	
+
 	// unify_with_occurs_check/2
 	"unify_with_occurs_check/2": function (thread, point, atom) {
 		var state = new State();
@@ -81244,14 +81244,14 @@ const predicates = {
 			thread.prepend([state]);
 		}
 	},
-	
+
 	// \=/2
 	"\\=/2": function (thread, point, atom) {
 		var occurs_check = thread.session.get_flag("occurs_check").indicator === "true/0";
 		var mgu = Object(_unify__WEBPACK_IMPORTED_MODULE_1__["unify"])(atom.args[0], atom.args[1], occurs_check)
 		if (mgu === null) thread.success(point)
 	},
-	
+
 	// subsumes_term/2
 	"subsumes_term/2": function (thread, point, atom) {
 		var occurs_check = thread.session.get_flag("occurs_check").indicator === "true/0";
@@ -81260,7 +81260,7 @@ const predicates = {
 			thread.success(point)
 		}
 	},
-	
+
 	// ALL SOLUTIONS
 
 	// findall/3
@@ -81313,20 +81313,20 @@ const predicates = {
 			return true;
 		}
 	},
-	
+
 	// bagof/3
 	"bagof/3": function (thread, point, atom) {
 		var answer, template = atom.args[0], goal = atom.args[1], instances = atom.args[2];
-		if (is_variable(goal)) 
+		if (is_variable(goal))
 			return thread.throw_error(error.instantiation(atom.indicator));
-        
-        if (!is_callable(goal)) 
+
+        if (!is_callable(goal))
 			return thread.throw_error(error.type("callable", goal, atom.indicator));
-        
-        if (!is_variable(instances) && !is_list(instances)) 
+
+        if (!is_variable(instances) && !is_list(instances))
 			return thread.throw_error(error.type("list", instances, atom.indicator));
-        
-        
+
+
 		var variable = thread.next_free_variable();
 		var template_vars;
 		if (goal.indicator === "^/2") {
@@ -81401,16 +81401,16 @@ const predicates = {
 	// setof/3
 	"setof/3": function (thread, point, atom) {
 		var answer, template = atom.args[0], goal = atom.args[1], instances = atom.args[2];
-		if (is_variable(goal)) 
+		if (is_variable(goal))
 			return thread.throw_error(error.instantiation(atom.indicator));
-        
-        if (!is_callable(goal)) 
+
+        if (!is_callable(goal))
 			return thread.throw_error(error.type("callable", goal, atom.indicator));
-        
-        if (!is_variable(instances) && !is_list(instances)) 
+
+        if (!is_variable(instances) && !is_list(instances))
 			return thread.throw_error(error.type("list", instances, atom.indicator));
-        
-        
+
+
 		var variable = thread.next_free_variable();
 		var template_vars;
 		if (goal.indicator === "^/2") {
@@ -81481,33 +81481,33 @@ const predicates = {
 		nthread.answer(callback);
 		return true
 	},
-	
+
 	// TERM CREATION AND DECOMPOSITION
-	
+
 	// functor/3
 	"functor/3": function (thread, point, atom) {
 		const { args: [ term, name, arity ] } = atom;
 
-		if (is_variable(term) && (is_variable(name ) || is_variable(arity ))) 
+		if (is_variable(term) && (is_variable(name ) || is_variable(arity )))
 			return thread.throw_error(error.instantiation("functor/3"));
-        
-        if (!is_variable(arity) && !is_integer(arity)) 
+
+        if (!is_variable(arity) && !is_integer(arity))
 			return thread.throw_error(error.type("integer", arity, "functor/3"));
-        
-        if (!is_variable(name) && !is_atomic(name)) 
+
+        if (!is_variable(name) && !is_atomic(name))
 			return thread.throw_error(error.type("atomic", name, "functor/3"));
-        
-        if (is_integer(name) && is_integer(arity) && arity.value !== 0) 
+
+        if (is_integer(name) && is_integer(arity) && arity.value !== 0)
 			return thread.throw_error(error.type("atom", name, "functor/3"));
-        
+
         if (is_variable(term) && arity.value >= 0) {
 				var args = [];
 				for(var i = 0; i < arity.value; i++ )
 					args.push(thread.next_free_variable());
 				var functor = is_integer(name ) ? name : new Term(name.id, args);
 				thread.prepend([new State(point.goal.replace(new Term("=", [term, functor])), point.substitution, point)])
-		} 
-		
+		}
+
 		if (!is_variable(term)) {
 			var id = is_integer(term) ? term : new Term(term.id, []);
 			var length = is_integer(term) ? new Num(0, false ) : new Num(term.args.length, false);
@@ -81515,25 +81515,25 @@ const predicates = {
 			thread.prepend([new State(point.goal.replace(goal ), point.substitution, point)])
 		}
 	},
-	
+
 	// arg/3
 	"arg/3": function (thread, point, atom) {
 		if (is_variable(atom.args[0] ) || is_variable(atom.args[1]))
 			return thread.throw_error(error.instantiation(atom.indicator));
-        
+
         if (atom.args[0].value < 0)
 			return thread.throw_error(error.domain("not_less_than_zero", atom.args[0], atom.indicator));
-        
+
         if (!is_compound(atom.args[1]))
 			return thread.throw_error(error.type("compound", atom.args[1], atom.indicator));
-        
+
 		var n = atom.args[0].value;
 		if (n > 0 && n <= atom.args[1].args.length) {
 			var goal = new Term("=", [atom.args[1].args[n-1], atom.args[2]]);
 			thread.prepend([new State(point.goal.replace(goal ), point.substitution, point)])
 		}
 	},
-	
+
 	// =../2 (univ)
 	"=../2": function (thread, point, atom) {
 		var list;
@@ -81562,15 +81562,15 @@ const predicates = {
 				args.push(list.args[0]);
 				list = list.args[1];
 			}
-			if (is_variable(atom.args[0]) && is_variable(list)) 
+			if (is_variable(atom.args[0]) && is_variable(list))
 				return thread.throw_error(error.instantiation(atom.indicator));
-			
-			if (args.length === 0 && is_compound(atom.args[1].args[0])) 
+
+			if (args.length === 0 && is_compound(atom.args[1].args[0]))
 				return thread.throw_error(error.type("atomic", atom.args[1].args[0], atom.indicator));
-			
-			if (args.length > 0 && (is_compound(atom.args[1].args[0] ) || is_number(atom.args[1].args[0] ))) 
+
+			if (args.length > 0 && (is_compound(atom.args[1].args[0] ) || is_number(atom.args[1].args[0] )))
 				return thread.throw_error(error.type("atom", atom.args[1].args[0], atom.indicator));
-			
+
 
 			if (args.length === 0) {
 				thread.prepend([new State(point.goal.replace(new Term("=", [atom.args[1].args[0], atom.args[0]], point)), point.substitution, point)])
@@ -81579,29 +81579,29 @@ const predicates = {
 			}
 		}
 	},
-	
+
 	// copy_term/2
 	"copy_term/2": function (thread, point, atom) {
 		var renamed = atom.args[0].rename(thread);
 		thread.prepend([new State(point.goal.replace(new Term("=", [renamed, atom.args[1]])), point.substitution, point.parent )]);
 	},
-	
+
 	// term_variables/2
 	"term_variables/2": function (thread, point, atom) {
 		var term = atom.args[0], vars = atom.args[1];
 		if (!is_fully_list(vars)) {
 			return thread.throw_error(error.type("list", vars, atom.indicator));
         }
-        
+
 		var list = arrayToList(term.variables().filter((D, I, A) => A.indexOf(D) === I).map(function(v) {
 				return new Var(v);
 		}));
 		thread.prepend([new State(point.goal.replace(new Term("=", [vars, list])), point.substitution, point)])
-		
+
 	},
-	
+
 	// CLAUSE RETRIEVAL AND INFORMATION
-	
+
 	// clause/2
 	"clause/2": function (thread, point, atom) {
 		if (is_variable(atom.args[0])) {
@@ -81633,7 +81633,7 @@ const predicates = {
 			}
 		}
 	},
-	
+
 	// current_predicate/1
 	"current_predicate/1": function (thread, point, atom) {
 		var indicator = atom.args[0];
@@ -81732,9 +81732,9 @@ const predicates = {
 			)]);
 		}
 	},
-	
+
 	// CLAUSE CREATION AND DESTRUCTION
-	
+
 	// asserta/1
 	"asserta/1": function (thread, point, atom) {
 		if (is_variable(atom.args[0])) {
@@ -81768,7 +81768,7 @@ const predicates = {
 			}
 		}
 	},
-	
+
 	// assertz/1
 	"assertz/1": function (thread, point, atom) {
 		if (is_variable(atom.args[0])) {
@@ -81777,7 +81777,7 @@ const predicates = {
         if (!is_callable(atom.args[0])) {
 			return thread.throw_error(error.type("callable", atom.args[0], atom.indicator));
         }
-        
+
 			var head, body;
 			if (atom.args[0].indicator === ":-/2") {
 				head = atom.args[0].args[0];
@@ -81800,9 +81800,9 @@ const predicates = {
 			} else {
 				thread.throw_error(error.permission("modify", "static_procedure", head.indicator, atom.indicator));
 			}
-		
+
 	},
-	
+
 	// retract/1
 	"retract/1": function (thread, point, atom) {
 		if (is_variable(atom.args[0])) {
@@ -81811,7 +81811,7 @@ const predicates = {
         if (!is_callable(atom.args[0])) {
 			return thread.throw_error(error.type("callable", atom.args[0], atom.indicator));
         }
-        
+
 			var head, body;
 			if (atom.args[0].indicator === ":-/2") {
 				head = atom.args[0].args[0];
@@ -81852,15 +81852,15 @@ const predicates = {
 			} else {
 				retract(thread, point, head.indicator, point.retract);
 			}
-		
+
 	},
-	
+
 	// retractall/1
 	"retractall/1": function (thread, point, atom) {
 		var head = atom.args[0];
 		if (is_variable(head))  return thread.throw_error(error.instantiation(atom.indicator));
         if (!is_callable(head)) return thread.throw_error(error.type("callable", head, atom.indicator));
-                
+
 		thread.prepend([
 			new State(point.goal.replace(new Term(",", [
 				new Term("retract", [new Term(":-", [head, new Var("_" )] )] ),
@@ -81891,7 +81891,7 @@ const predicates = {
         if (is_number(thread.session.get_flag("max_arity" )) && atom.args[0].args[1].value > thread.session.get_flag("max_arity" ).value) {
 			return thread.throw_error(error.representation("max_arity", atom.indicator));
         }
-        
+
 			var indicator = atom.args[0].args[0].id + "/" + atom.args[0].args[1].value;
 			if (thread.is_public_predicate(indicator)) {
 				delete thread.session.rules[indicator];
@@ -81899,21 +81899,21 @@ const predicates = {
 			} else {
 				thread.throw_error(error.permission("modify", "static_procedure", indicator, atom.indicator));
 			}
-		
+
 	},
-	
+
 
 	...term_compare,
 	...stream_io,
 	// EVALUATION
-	
+
 	// is/2
 	"is/2": function (thread, point, atom) {
 		var op = atom.args[1].interpret(thread);
 		if (!is_number(op)) return thread.throw_error(op);
 		thread.prepend([new State(point.goal.replace(new Term("=", [atom.args[0], op], thread.level)), point.substitution, point)])
 	},
-	
+
 	// between/3
 	"between/3": function (thread, point, atom) {
 		var lower = atom.args[0], upper = atom.args[1], bet = atom.args[2];
@@ -81922,8 +81922,8 @@ const predicates = {
         if (!is_integer(lower)) return thread.throw_error(error.type("integer", lower, atom.indicator));
         if (!is_integer(upper)) return thread.throw_error(error.type("integer", upper, atom.indicator));
         if (!is_variable(bet) && !is_integer(bet)) return thread.throw_error(error.type("integer", bet, atom.indicator));
-        
-        
+
+
 		if (is_variable(bet)) {
 				var states = [new State(point.goal.replace(new Term("=", [bet, lower])), point.substitution, point)];
 				if (lower.value < upper.value )
@@ -81933,18 +81933,18 @@ const predicates = {
 				thread.success(point)
 		}
 	},
-	
+
 	// succ/2
 	"succ/2": function (thread, point, atom) {
 		var n = atom.args[0], m = atom.args[1];
 		if (is_variable(n) && is_variable(m))
 			return thread.throw_error(error.instantiation(atom.indicator));
-        
+
         if (!is_variable(n) && !is_integer(n)) return thread.throw_error(error.type("integer", n, atom.indicator));
         if (!is_variable(m) && !is_integer(m)) return thread.throw_error(error.type("integer", m, atom.indicator));
         if (is_integer(n) && n.value < 0) return thread.throw_error(error.domain("not_less_than_zero", n, atom.indicator));
         if (is_integer(m) && m.value < 0) return thread.throw_error(error.domain("not_less_than_zero", m, atom.indicator));
-    
+
 		if (is_variable(n)) {
 			thread.prepend([new State(point.goal.replace(new Term("=", [n, new Num(m.value-1, false )])), point.substitution, point)])
 		} else {
@@ -81973,14 +81973,14 @@ const predicates = {
 		if(!is_variable(time) && !is_number(time)) {
 			return thread.throw_error(error.type("number", time, atom.indicator));
         }
-        
+
 			var current = new Num(Date.now(), true);
 			thread.prepend([new State(
-				point.goal.replace(new Term("=", [time, current])), 
+				point.goal.replace(new Term("=", [time, current])),
 				point.substitution,
 				point
 			)]);
-		
+
 	},
 
 
@@ -81990,15 +81990,15 @@ const predicates = {
 	// phrase/3
 	"phrase/3": function (thread, point, atom) {
 		const { args: [ grbody, s0, s ], indicator } = atom;
-        
+
 		if (is_variable(grbody)) return thread.throw_error(error.instantiation(indicator));
         if (!is_callable(grbody)) return thread.throw_error(error.type("callable", grbody, indicator));
-        
+
 		const goal = body_to_dcg(grbody.clone(), s0, thread);
 		if(goal === null) return;
-		
+
 		thread.prepend([new State(
-			point.goal.replace(new Term(",", [goal.value, new Term("=", [goal.variable, s])])), 
+			point.goal.replace(new Term(",", [goal.value, new Term("=", [goal.variable, s])])),
 			point.substitution,
 			point
 		)]);
@@ -82009,7 +82009,7 @@ const predicates = {
         const { args: [ grbody, s0 ] } = atom;
 		thread.prepend([
             new State(
-                point.goal.replace(new Term("phrase", [grbody, s0, new Term("[]", [])])), 
+                point.goal.replace(new Term("phrase", [grbody, s0, new Term("[]", [])])),
                 point.substitution,
                 point
             )
@@ -82044,7 +82044,7 @@ const streams_io = {
 		if (!is_variable(stream) && !is_stream(stream) && !is_atom(stream)) {
 			return thread.throw_error(error.domain("stream", stream, atom.indicator));
         }
-        
+
 			if (is_atom(stream) && thread.session.get_stream_by_alias(stream.id))
 				stream = thread.session.get_stream_by_alias(stream.id);
 			thread.prepend([new State(
@@ -82052,7 +82052,7 @@ const streams_io = {
 				point.substitution,
 				point)
 			]);
-		
+
 	},
 
 	"current_output/1": function (thread, point, atom) {
@@ -82060,7 +82060,7 @@ const streams_io = {
 		if (!is_variable(stream) && !is_stream(stream) && !is_atom(stream)) {
 			return thread.throw_error(error.domain("stream_or_alias", stream, atom.indicator));
         }
-        
+
 			if (is_atom(stream) && thread.session.get_stream_by_alias(stream.id))
 				stream = thread.session.get_stream_by_alias(stream.id);
 			thread.prepend([new State(
@@ -82068,7 +82068,7 @@ const streams_io = {
 				point.substitution,
 				point)
 			]);
-		
+
 	},
 
 	// set_input/1
@@ -82233,7 +82233,7 @@ const streams_io = {
         if (!is_stream(stream2 ) || stream2.stream === null) {
 			return thread.throw_error(error.existence("stream", stream, atom.indicator));
         }
-        
+
 			// Get options
 			var obj_options = {};
 			var pointer = options;
@@ -82277,7 +82277,7 @@ const streams_io = {
 					thread.success(point)
 				}
 			}
-		
+
 	},
 
 	// flush_output/0
@@ -82413,7 +82413,7 @@ const streams_io = {
         if (stream2.reposition === false) {
 			return thread.throw_error(error.permission("reposition", "stream", stream, atom.indicator));
         }
-        
+
 		if (is_integer(position))
 			stream2.position = position.value;
 		else
@@ -82424,7 +82424,7 @@ const streams_io = {
 
 
 	//  CHARACTER INPUT OUTPUT
-	
+
 	// get_char/1
 	"get_char/1": function (thread, point, atom) {
 		var char = atom.args[0];
@@ -82514,7 +82514,7 @@ const streams_io = {
         if (stream2.position === "past_end_of_stream" && stream2.eof_action === "error") {
 			return thread.throw_error(error.permission("input", "past_end_of_stream", stream, atom.indicator));
         }
-        
+
 		var stream_code;
 		if (stream2.position === "end_of_stream") {
 			stream_code = -1;
@@ -82533,7 +82533,7 @@ const streams_io = {
 			point.substitution,
 			point
 		)]);
-		
+
 	},
 
 	// peek_char/1
@@ -82571,7 +82571,7 @@ const streams_io = {
         if (stream2.position === "past_end_of_stream" && stream2.eof_action === "error") {
 			return thread.throw_error(error.permission("input", "past_end_of_stream", stream, atom.indicator));
         }
-        
+
 		var stream_char;
 		if (stream2.position === "end_of_stream") {
 			stream_char = "end_of_file";
@@ -82588,7 +82588,7 @@ const streams_io = {
 			point.substitution,
 			point
 		)]);
-		
+
 	},
 
 	// peek_code/1
@@ -82810,7 +82810,7 @@ const streams_io = {
 			)]);
 		}
 	},
-	
+
 	// peek_byte/1
 	"peek_byte/1": function (thread, point, atom) {
 		var byte = atom.args[0];
@@ -82947,20 +82947,20 @@ const streams_io = {
 		if (is_variable(stream ) || is_variable(options)) {
 			return thread.throw_error(error.instantiation(atom.indicator));
         }
-        if (!is_list(options)) 
+        if (!is_list(options))
 			return thread.throw_error(error.type("list", options, atom.indicator))
-        if (!is_stream(stream) && !is_atom(stream)) 
+        if (!is_stream(stream) && !is_atom(stream))
 			return thread.throw_error(error.domain("stream_or_alias", stream, atom.indicator))
-        if (!is_stream(stream2 ) || stream2.stream === null) 
-			return thread.throw_error(error.existence("stream", stream, atom.indicator))        
-		if (stream2.output) 
+        if (!is_stream(stream2 ) || stream2.stream === null)
+			return thread.throw_error(error.existence("stream", stream, atom.indicator))
+		if (stream2.output)
 			return thread.throw_error(error.permission("input", "stream", stream, atom.indicator))
-		if (stream2.type === "binary") 
+		if (stream2.type === "binary")
 			return thread.throw_error(error.permission("input", "binary_stream", stream, atom.indicator))
-        if (stream2.position === "past_end_of_stream" && stream2.eof_action === "error") 
+        if (stream2.position === "past_end_of_stream" && stream2.eof_action === "error")
 			return thread.throw_error(error.permission("input", "past_end_of_stream", stream, atom.indicator))
-        
-        
+
+
 			// Get options
 			var obj_options = {};
 			var pointer = options;
@@ -83059,7 +83059,7 @@ const streams_io = {
 						thread.throw_error(expr.value);
 				}
 			}
-		
+
 	},
 
 	"write/1": function (thread, point, atom) {
@@ -83070,7 +83070,7 @@ const streams_io = {
 			point
 		)]);
 	},
-	
+
 	"write/2": function (thread, point, atom) {
 		var stream = atom.args[0], term = atom.args[1];
 		thread.prepend([new State(
@@ -83082,7 +83082,7 @@ const streams_io = {
 			point
 		)]);
 	},
-	
+
 	"writeq/1": function (thread, point, atom) {
 		var term = atom.args[0];
 		thread.prepend([new State(
@@ -83091,7 +83091,7 @@ const streams_io = {
 			point
 		)]);
 	},
-	
+
 	"writeq/2": function (thread, point, atom) {
 		var stream = atom.args[0], term = atom.args[1];
 		thread.prepend([new State(
@@ -83103,7 +83103,7 @@ const streams_io = {
 			point
 		)]);
 	},
-	
+
 	"write_canonical/1": function (thread, point, atom) {
 		var term = atom.args[0];
 		thread.prepend([new State(
@@ -83112,7 +83112,7 @@ const streams_io = {
 			point
 		)]);
 	},
-	
+
 	"write_canonical/2": function (thread, point, atom) {
 		var stream = atom.args[0], term = atom.args[1];
 		thread.prepend([new State(
@@ -83133,7 +83133,7 @@ const streams_io = {
 			point
 		)]);
 	},
-	
+
 	"write_term/3": function (thread, point, atom) {
 		var stream = atom.args[0], term = atom.args[1], options = atom.args[2];
 		var stream2 = is_stream(stream ) ? stream : thread.session.get_stream_by_alias(stream.id);
@@ -83193,7 +83193,7 @@ const streams_io = {
 	},
 
 	// ATTRIBUTED VARIABLES
-	
+
 	//put_attr/3
 	"put_attr/3": function (thread, point, atom) {
 		const { args: [ variable, module, value ], indicator } = atom;
@@ -83213,7 +83213,7 @@ const streams_io = {
 
 		if (!is_variable(variable)) return thread.throw_error(error.type("variable", variable, indicator))
 		if (!is_atom(module))       return thread.throw_error(error.type("atom", module, indicator))
-		
+
 		var attr = point.substitution.get_attribute(variable.id, module);
 		if (!attr) return
 
@@ -83224,12 +83224,12 @@ const streams_io = {
 
 
 	// IMPLEMENTATION DEFINED HOOKS
-	
+
 	// halt/0
 	"halt/0": function(thread, point, _) {
 		thread.points = [];
 	},
-	
+
 	// halt/1
 	"halt/1": function (thread, point, atom) {
 		var int = atom.args[0];
@@ -83243,7 +83243,7 @@ const streams_io = {
 			thread.points = [];
 		}
 	},
-	
+
 	// current_prolog_flag/2
 	"current_prolog_flag/2": function (thread, point, atom) {
 		var flag = atom.args[0], value = atom.args[1];
@@ -83263,23 +83263,23 @@ const streams_io = {
 			thread.prepend(states);
 		}
 	},
-	
+
 	// set_prolog_flag/2
 	"set_prolog_flag/2": function (thread, point, atom) {
 		const { args: [ flag, value ], indicator } = atom;
-		
+
 		if (is_variable(flag))  return thread.throw_error(error.instantiation(indicator));
 		if (is_variable(value)) return thread.throw_error(error.instantiation(indicator));
-        
+
         if (!is_atom(flag)) return thread.throw_error(error.type("atom", flag, indicator));
         if (!is_flag(flag)) return thread.throw_error(error.domain("prolog_flag", flag, indicator));
-        
-        if (!is_value_flag(flag, value)) 
+
+        if (!is_value_flag(flag, value))
 			return thread.throw_error(error.domain("flag_value", new Term("+", [flag, value] ), indicator));
-        
-        if (!is_modifiable_flag(flag)) 
+
+        if (!is_modifiable_flag(flag))
 			return thread.throw_error(error.permission("modify", "flag", flag));
-                
+
 		thread.session.flag[flag.id] = value;
 		thread.success(point)
 	},
@@ -83308,47 +83308,47 @@ const { State, Term, is_variable, is_atom } = __webpack_require__(/*! ../Element
 const { error } = __webpack_require__(/*! ../Errors */ "./src/classes/libs/Errors.js");
 
 const term_compare = {
-	
+
 	// TERM COMPARISON
-	
+
 	"@=</2": function (thread, point, atom) {
 		if (_PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].compare(atom.args[0], atom.args[1]) <= 0) thread.success(point)
 	},
-	
+
 	"==/2": function (thread, point, atom) {
 		if (_PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].compare(atom.args[0], atom.args[1]) === 0) thread.success(point)
 	},
-	
+
 	"\\==/2": function (thread, point, atom) {
 		if (_PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].compare(atom.args[0], atom.args[1]) !== 0) thread.success(point)
 	},
-	
+
 	"@</2": function (thread, point, atom) {
 		if (_PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].compare(atom.args[0], atom.args[1]) < 0) thread.success(point)
 	},
-	
+
 	"@>/2": function (thread, point, atom) {
 		if (_PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].compare(atom.args[0], atom.args[1]) > 0) thread.success(point)
 	},
-	
+
 	"@>=/2": function (thread, point, atom) {
 		if (_PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].compare(atom.args[0], atom.args[1]) >= 0) thread.success(point)
 	},
-	
+
 	"compare/3": function (thread, point, atom) {
         const { args: [ order, left, right ], indicator } = atom;
-		if (!is_variable(order) && !is_atom(order)) 
+		if (!is_variable(order) && !is_atom(order))
 			return thread.throw_error(error.type("atom", order, indicator));
-        
+
         if (is_atom(order) && ["<", ">", "="].indexOf(order.id) === -1)
 			return thread.throw_error(error.domain("order", order, indicator));
-        
-        
+
+
 		let c = _PrologRootModule__WEBPACK_IMPORTED_MODULE_0__["pl"].compare(left, right);
 		c = c === 0 ? "=" : (c === -1 ? "<" : ">");
 		thread.prepend([new State(point.goal.replace(new Term("=", [order, new Term(c, [])])), point.substitution, point)])
 	},
-	
+
 }
 
 /***/ }),
