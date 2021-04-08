@@ -1,2 +1,2 @@
-# zenomeplatform.github.io
+# Zenomeplatform
 Zenome Platform web-site
