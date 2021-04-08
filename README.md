@@ -1,4 +1,4 @@
-# Zenomeplatform web-pages
+# Zenomeplatform development web-pages
 
 * Zenome Varianter:<br/> 
 _Genomic variants annotation and filtration tool_<br/>
